@@ -1,0 +1,57 @@
+#include<stdio.h>
+#include<stdlib.h>
+#define size 20
+int stack[size],top=-1;
+void display()
+{
+int i;
+for(i=0;i<=top;i++)
+{
+if(i==top)
+printf("%d",stack[i]);
+else
+printf("%d",stack[i]);
+}
+printf("\n");
+}
+void push()
+{
+int a;
+scanf("%d",&a);  // push the element to the stack;
+top++;
+stack[top]=a;
+display();
+}
+void pop()
+{
+top--;       // decrement the top value
+display();    //display the remaining elements
+}
+void topelement()
+{
+printf("%d",stack[top]);  //print the top most element
+printf("\n");
+}
+void length()
+{
+printf("%d",top+1);   // return the no.of elements present in the stack;;as first element count at top=0 we provide the length to be top+1
+printf("\n");
+}
+int main()
+{
+int ele;
+while(scanf("%d",&ele) !=EOF) // sf function !=EOF is mandatory if you are already provided with inputs else keep the "sf" in while loop
+{
+if(ele==1) // if user's choice is 1 he needs to enter element in to stack
+push();
+else if(ele==2) //if user's choice is 2 he needs to delete the top most element
+pop();
+else if(ele==3) //if user's choice is 3 he needs to display the elements of stack
+display();
+else if(ele==4) //if user's choice is 4 he needs to print the top most element
+topelement();
+else if(ele==5) //if user's choice is 5 he needs to know the length of stack
+length();
+else
+exit(0);
+}
