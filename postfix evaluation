@@ -1,0 +1,42 @@
+#include<stdio.h>
+#include<ctype.h>
+#include<stdlib.h>
+#define size 20
+int stack[size[,top=-1;
+void push(int a)
+{
+stack[++top]=a;
+}
+int main()
+{
+char str[20];
+char *a;
+int n,op1,op2,res;
+printf("enter postfix expression");
+scanf("%s",str);
+a=str;
+while(*a !='\0')
+{
+if(isdigit(*a))
+{
+n=*a-48;  //changing ascii value to integer
+push(n);  //push it to stack
+}
+else
+{
+op1=stack[top--]; //if you encounter a operator pop two values of stack
+op2=stack[top--]; //and evaluate them
+switch(*a)
+{
+case '+':res=op2+op1;break;
+case '*':res=op2*op1;break;
+case '/':res=op2/op1;break;
+case '-':res=op2-op1;break;
+}
+push(res);  //store the result into stack
+}
+a++;
+}
+printf("%d",stack[top]); //only final result is left and return it
+return 0;
+}
